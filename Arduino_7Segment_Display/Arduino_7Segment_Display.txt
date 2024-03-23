@@ -1,0 +1,43 @@
+// Arduino_7Segment_Display.ino
+
+void setup() {
+  pinMode(6, OUTPUT);
+  pinMode(7, OUTPUT);
+  pinMode(8, OUTPUT);
+  pinMode(9, OUTPUT);
+  pinMode(10, OUTPUT);
+  pinMode(11, OUTPUT);
+  pinMode(12, OUTPUT);
+}
+
+void loop() {
+  // EIGHT : 6
+  digitalWrite(12, HIGH); // A
+  digitalWrite(11, LOW);  // B
+  digitalWrite(10, HIGH); // C
+  digitalWrite(9, HIGH);  // D
+  digitalWrite(8, HIGH);  // E
+  digitalWrite(7, HIGH);  // F
+  digitalWrite(6, HIGH);  // G
+  delay(500);
+
+  // EIGHT : 7
+  digitalWrite(12, HIGH); // A
+  digitalWrite(11, HIGH); // B
+  digitalWrite(10, HIGH); // C
+  digitalWrite(9, LOW);   // D
+  digitalWrite(8, LOW);   // E
+  digitalWrite(7, HIGH);  // F
+  digitalWrite(6, HIGH);  // G
+  delay(500);
+
+  // EIGHT : 8
+  digitalWrite(12, HIGH); // A
+  digitalWrite(11, HIGH); // B
+  digitalWrite(10, HIGH); // C
+  digitalWrite(9, HIGH);  // D
+  digitalWrite(8, HIGH);  // E
+  digitalWrite(7, HIGH);  // F
+  digitalWrite(6, HIGH);  // G
+  delay(500);
+}
