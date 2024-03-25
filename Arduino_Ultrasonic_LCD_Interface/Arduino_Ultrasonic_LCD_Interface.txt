@@ -1,0 +1,42 @@
+#include <Wire.h> 
+#include <LiquidCrystal_I2C.h>
+#include <HCSR04.h>
+//UltraSonicDistanceSensor sensor(triggerPin, echoPin);
+
+// Initialize sensor that uses digital pins 13 and 12.
+UltraSonicDistanceSensor distanceSensor(13, 12);  
+ 
+// set the LCD address to 0x27 for a 16 chars and 2 line display & 20 X 4 for 20 chars and 4 line display
+LiquidCrystal_I2C lcd(0x27,16,2);  
+
+void setup()
+{
+// We initialize serial connection so that we could print values from sensor.
+  Serial.begin(9600);     
+  lcd.init();                      // initialize the lcd 
+  lcd.init();
+ //Print a message to the LCD.
+  lcd.backlight();
+  lcd.setCursor(3,0); //column,row
+  lcd.print("GitHub");
+  lcd.setCursor(2,1);
+  lcd.print("Repo");
+  delay(2000);
+  lcd.setCursor(1,2);
+  lcd.print("Distance");
+}
+void loop()
+{
+    float dist;
+    dist=distanceSensor.measureDistanceCm();
+    Serial.println(round(dist));
+    delay(1000);
+    lcd.clear();
+    lcd.setCursor(0,0);
+    lcd.print("Distance : ");
+    lcd.setCursor(10,0);
+    lcd.print(round(dist));
+    lcd.setCursor(13,0);
+    lcd.print(" cm");   
+ 
+} 
